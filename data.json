@@ -1,0 +1,695 @@
+{
+	"Data": {
+		"Countries": [
+			{
+				"Name": "Philipines",
+				"Diseases": [
+					{
+						"Name": "Dengue fever",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Typhoid fever",
+						"Head": false,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Malaria",
+						"Head": true,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Influenza",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					},
+					{
+						"Name": "Hepatitis",
+						"Head": true,
+						"Upper": false,
+						"Lower": true
+					}
+				]
+			},
+			{
+				"Name": "Indonesia",
+				"Diseases": [
+					{
+						"Name": "Dengue fever",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Typhoid fever",
+						"Head": false,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Malaria",
+						"Head": true,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Influenza",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					},
+					{
+						"Name": "Hepatitis",
+						"Head": true,
+						"Upper": false,
+						"Lower": true
+					}
+				]
+			},
+			{
+				"Name": "India",
+				"Diseases": [
+					{
+						"Name": "Dengue fever",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Typhoid fever",
+						"Head": false,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Malaria",
+						"Head": true,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Influenza",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					},
+					{
+						"Name": "Hepatitis",
+						"Head": true,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Meningitis",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					},
+					{
+						"Name": "Poliomyelitis",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					}
+				]
+			},
+			{
+				"Name": "Nigeria",
+				"Diseases": [
+					{
+						"Name": "Dengue fever",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Typhoid fever",
+						"Head": false,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Malaria",
+						"Head": true,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Influenza",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					},
+					{
+						"Name": "Hepatitis",
+						"Head": true,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Poliomyelitis",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					}
+				]
+			},
+			{
+				"Name": "Australie",
+				"Diseases": [
+					{
+						"Name": "Dengue fever",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Typhoid fever",
+						"Head": false,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Malaria",
+						"Head": true,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Influenza",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					},
+					{
+						"Name": "Hepatitis",
+						"Head": true,
+						"Upper": false,
+						"Lower": true
+					}
+				]
+			},
+			{
+				"Name": "Brazil",
+				"Diseases": [
+					{
+						"Name": "Dengue fever",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Typhoid fever",
+						"Head": false,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Malaria",
+						"Head": true,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Influenza",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					},
+					{
+						"Name": "Hepatitis",
+						"Head": true,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Meningitis",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					}
+				]
+			},
+			{
+				"Name": "Mexico",
+				"Diseases": [
+					{
+						"Name": "Dengue fever",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Typhoid fever",
+						"Head": false,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Malaria",
+						"Head": true,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Influenza",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					},
+					{
+						"Name": "Hepatitis",
+						"Head": true,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "SARS",
+						"Head": true,
+						"Upper": true,
+						"Lower": false
+					}
+				]
+			},
+			{
+				"Name": "China",
+				"Diseases": [
+					{
+						"Name": "Dengue fever",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Typhoid fever",
+						"Head": false,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Malaria",
+						"Head": true,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Influenza",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					},
+					{
+						"Name": "Hepatitis",
+						"Head": true,
+						"Upper": false,
+						"Lower": true
+					}
+				]
+			},
+			{
+				"Name": "Senegal",
+				"Diseases": [
+					{
+						"Name": "Dengue fever",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Typhoid fever",
+						"Head": false,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Malaria",
+						"Head": true,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Influenza",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					},
+					{
+						"Name": "Hepatitis",
+						"Head": true,
+						"Upper": false,
+						"Lower": true
+					}
+				]
+			},
+			{
+				"Name": "Korea",
+				"Diseases": [
+					{
+						"Name": "Dengue fever",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Typhoid fever",
+						"Head": false,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Malaria",
+						"Head": true,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Influenza",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					},
+					{
+						"Name": "Hepatitis",
+						"Head": true,
+						"Upper": false,
+						"Lower": true
+					}
+				]
+			},
+			{
+				"Name": "Thailand",
+				"Diseases": [
+					{
+						"Name": "Dengue fever",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Typhoid fever",
+						"Head": false,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Malaria",
+						"Head": true,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Influenza",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					},
+					{
+						"Name": "Hepatitis",
+						"Head": true,
+						"Upper": false,
+						"Lower": true
+					}
+				]
+			},
+			{
+				"Name": "Malaysia",
+				"Diseases": [
+					{
+						"Name": "Dengue fever",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Typhoid fever",
+						"Head": false,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Malaria",
+						"Head": true,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Hepatitis",
+						"Head": true,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Chikunguny",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					},
+					{
+						"Name": "SARS",
+						"Head": true,
+						"Upper": true,
+						"Lower": false
+					}
+				]
+			},
+			{
+				"Name": "Afghanistan",
+				"Diseases": [
+					{
+						"Name": "Typhoid fever",
+						"Head": false,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Malaria",
+						"Head": true,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Influenza",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					},
+					{
+						"Name": "Hepatitis",
+						"Head": true,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Poliomyelitis",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					}
+				]
+			},
+			{
+				"Name": "Pakistan",
+				"Diseases": [
+					{
+						"Name": "Typhoid fever",
+						"Head": false,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Malaria",
+						"Head": true,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Influenza",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					},
+					{
+						"Name": "Hepatitis",
+						"Head": true,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Lymphomas",
+						"Head": true,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Poliomyelitis",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					}
+				]
+			},
+			{
+				"Name": "Ivoorkust",
+				"Diseases": [
+					{
+						"Name": "Typhoid fever",
+						"Head": false,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Malaria",
+						"Head": true,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Influenza",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					},
+					{
+						"Name": "Hepatitis",
+						"Head": true,
+						"Upper": false,
+						"Lower": true
+					},
+					{
+						"Name": "Meningitis",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					}
+				]
+			},
+			{
+				"Name": "Mongolia",
+				"Diseases": [
+					{
+						"Name": "Meningitis",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					}
+				]
+			},
+			{
+				"Name": "Angola",
+				"Diseases": [
+					{
+						"Name": "Gastroenteritis",
+						"Head": false,
+						"Upper": false,
+						"Lower": true
+					}
+				]
+			},
+			{
+				"Name": "Iraq",
+				"Diseases": [
+					{
+						"Name": "Lymphomas",
+						"Head": true,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Diphteria",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					}
+				]
+			},
+			{
+				"Name": "Japan",
+				"Diseases": [
+					{
+						"Name": "Kawasaki Disease",
+						"Head": true,
+						"Upper": false,
+						"Lower": false
+					}
+				]
+			},
+			{
+				"Name": "USA",
+				"Diseases": [
+					{
+						"Name": "Sarcoidosis",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					}
+				]
+			},
+			{
+				"Name": "Taiwan",
+				"Diseases": [
+					{
+						"Name": "SARS",
+						"Head": true,
+						"Upper": true,
+						"Lower": false
+					}
+				]
+			},
+			{
+				"Name": "Haiti",
+				"Diseases": [
+					{
+						"Name": "Malaria",
+						"Head": true,
+						"Upper": true,
+						"Lower": true
+					},
+					{
+						"Name": "Diphteria",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					}
+				]
+			},
+			{
+				"Name": "Russia",
+				"Diseases": [
+					{
+						"Name": "Diphteria",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					}
+				]
+			},
+			{
+				"Name": "Poland",
+				"Diseases": [
+					{
+						"Name": "Diphteria",
+						"Head": false,
+						"Upper": true,
+						"Lower": true
+					}
+				]
+			},
+			{
+				"Name": "Madagaskar",
+				"Diseases": [
+					{
+						"Name": "Schistosomiasis",
+						"Head": true,
+						"Upper": false,
+						"Lower": true
+					}
+				]
+			}
+		]
+	}
+}
