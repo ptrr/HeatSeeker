@@ -121,6 +121,8 @@ type Env struct{
 	customs * go2d.Image
 	bg *go2d.Image
 	entrance * go2d.Image
+	hatch * go2d.Image
+	hatch_open * go2d.Image
 }
 
 func (human *Human) addFrame(image *go2d.Image) {
@@ -180,7 +182,10 @@ func start() {
 	currentEnv.seaker = go2d.NewImage("seaker.png")
 	currentEnv.bg = go2d.NewImage("bg.png")
 	currentEnv.entrance = go2d.NewImage("entrance.png")
-	currentEnv.customs = go2d.NewImage("customs.png")
+	currentEnv.customs = go2d.NewImage("desk.png")
+	currentEnv.hatch = go2d.NewImage("hatch.png")
+	currentEnv.hatch_open = go2d.NewImage("hatch_open.png")
+	
 	font = go2d.NewFont("arial.ttf", 14)
 	font.SetStyle(true, false, false)
 	NewHuman()
@@ -239,13 +244,24 @@ func update() {
 func draw() {
 	currentEnv.bg.DrawRect(go2d.NewRect(0,0, 800, 600))
 	font.SetStyle(false, false, true)
-	font.DrawText("Customs", 330, 435)
-	go2d.DrawFillRect(go2d.NewRect(320, 455, 80, 80), 255, 255, 255, 255)
+	//font.DrawText("Customs", 330, 435)
+	currentEnv.customs.DrawRect(go2d.NewRect(300, 430, 164, 82))
+	
+	if !hatchOpen {
+		//go2d.DrawFillRect(go2d.NewRect(500, 515, 100, 20), 255, 255, 255, 255)
+		currentEnv.hatch.DrawRect(go2d.NewRect(470, 480, 144, 80))
+	} else {
+		currentEnv.hatch_open.DrawRect(go2d.NewRect(470, 480, 144, 80))	
+	}
+	
+	
+	//go2d.DrawFillRect(go2d.NewRect(320, 455, 80, 80), 255, 255, 255, 255)
 	
 	for i := 0; i < len(humans); i++ {
 		human := humans[i]
 		if len(human.frames) > 0 {
-			human.frames[human.frame].DrawRect(go2d.NewRect(humans[i].x, humans[i].y, 78, 114))
+			//human.frames[human.frame].DrawRect(go2d.NewRect(humans[i].x, humans[i].y, 78, 114))
+			human.frames[human.frame].DrawInRect(humans[i].x, humans[i].y, go2d.NewRect(0,0, 800, 512))
 		}
 	}
 	
@@ -253,14 +269,9 @@ func draw() {
 	
 	currentEnv.seaker.DrawRect(go2d.NewRect(150, 309, 91, 211))
 	
-	currentEnv.customs.DrawRect(go2d.NewRect(150, 309, 91, 211))
 	
 	//go2d.DrawFillRect(go2d.NewRect(0, 515, 500, 20), 0, 255,0, 255)
 	//go2d.DrawFillRect(go2d.NewRect(600, 515, 100, 20), 0, 0, 255, 255)
-	
-	if !hatchOpen {
-		go2d.DrawFillRect(go2d.NewRect(500, 515, 100, 20), 255, 255, 255, 255)
-	}
 	
 	//go2d.DrawFillRect(go2d.NewRect(700, 370, 100, 165), 255, 255, 255, 255)
 	currentEnv.entrance.DrawRect(go2d.NewRect(717, 311, 83, 176))
@@ -314,9 +325,9 @@ func draw() {
 	}
 	
 	font.SetStyle(false, false, true)
-	font.DrawText("Heatseeker", 150, 350)
-	font.DrawText("Quarantaine", 510, 520)
-	font.DrawText("Entrance", 720, 350)
+	//font.DrawText("Heatseeker", 150, 350)
+	//font.DrawText("Quarantaine", 510, 520)
+	//font.DrawText("Entrance", 720, 350)
 } 
 
 func mouseMove(x, y int16) {
