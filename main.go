@@ -24,6 +24,9 @@ var temp_head int = 0
 var temp_upper int = 0
 var temp_lower int = 0
 
+var allDiseases []string = make([]string, 0)
+var epidemics [4]string
+
 var currentCountry *Country 
 var currentDiseases []*Disease
 var currentEnv *Env
@@ -140,8 +143,31 @@ func removeHuman(index int) {
 	humans = append(h, l...)
 }
 
+func setEpidemic(index int) {
+	for {
+		disease := allDiseases[rand.Intn(len(allDiseases))]
+		found := false
+		for _, dname := range epidemics {
+			if dname == disease {
+				found = true
+			}
+		}
+		if !found {
+			epidemics[index] = disease
+			return
+		}
+	}
+}
+
 func start() {
 	loadData()
+	
+	//set epidemics
+	for i := 0; i < len(epidemics); i++ {
+		setEpidemic(i)
+		println(epidemics[i])
+	}
+	
 	currentEnv = &Env{}
 	currentEnv.seaker = go2d.NewImage("seaker.png")
 	currentEnv.bg = go2d.NewImage("bg.png")
@@ -306,6 +332,15 @@ func loadData() {
 	for _, country := range jsontype.Data.Countries {
 		newCountry := NewCountry(country.Name)
 		for _, disease := range country.Diseases {
+			found := false
+			for _, dname := range allDiseases {
+				if dname == disease.Name {
+					found = true
+				}
+			}
+			if !found {
+				allDiseases = append(allDiseases, disease.Name)
+			}
 			newCountry.addDisease(disease.Name, disease.Head, disease.Upper, disease.Lower)
 		}
 		countries = append(countries, newCountry)
