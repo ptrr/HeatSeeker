@@ -259,7 +259,8 @@ func draw() {
 	
 	
 	//go2d.DrawFillRect(go2d.NewRect(320, 455, 80, 80), 255, 255, 255, 255)
-	
+	currentEnv.pole.DrawRect(go2d.NewRect(540, 280, 30, 160))
+	borden[0].Draw(480, 260)
 	for i := 0; i < len(humans); i++ {
 		human := humans[i]
 		if len(human.frames) > 0 {
@@ -293,8 +294,7 @@ func draw() {
 	}
 	
 	font.DrawText("Possible diseases:", 500, 100)
-	currentEnv.pole.DrawRect(go2d.NewRect(540, 290, 30, 160))
-	borden[0].Draw(480, 240)
+
 	if currentDiseases != nil {
 		counter := 0
 		for _, disease := range currentDiseases {
