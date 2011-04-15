@@ -123,6 +123,7 @@ type Env struct{
 	entrance * go2d.Image
 	hatch * go2d.Image
 	hatch_open * go2d.Image
+	pole * go2d.Image
 }
 
 func (human *Human) addFrame(image *go2d.Image) {
@@ -185,6 +186,7 @@ func start() {
 	currentEnv.customs = go2d.NewImage("desk.png")
 	currentEnv.hatch = go2d.NewImage("hatch.png")
 	currentEnv.hatch_open = go2d.NewImage("hatch_open.png")
+	currentEnv.pole = go2d.NewImage("pole.png")
 	
 	font = go2d.NewFont("arial.ttf", 14)
 	font.SetStyle(true, false, false)
@@ -247,6 +249,7 @@ func draw() {
 	//font.DrawText("Customs", 330, 435)
 	currentEnv.customs.DrawRect(go2d.NewRect(300, 430, 164, 82))
 	
+	
 	if !hatchOpen {
 		//go2d.DrawFillRect(go2d.NewRect(500, 515, 100, 20), 255, 255, 255, 255)
 		currentEnv.hatch.DrawRect(go2d.NewRect(470, 480, 144, 80))
@@ -290,7 +293,8 @@ func draw() {
 	}
 	
 	font.DrawText("Possible diseases:", 500, 100)
-	borden[0].Draw(510, 540)
+	currentEnv.pole.DrawRect(go2d.NewRect(540, 290, 30, 160))
+	borden[0].Draw(480, 240)
 	if currentDiseases != nil {
 		counter := 0
 		for _, disease := range currentDiseases {
@@ -317,7 +321,7 @@ func draw() {
 			
 			for i, dname := range epidemics {
 				if dname == disease.name {
-					borden[i+1].Draw(510, 540)
+					borden[i+1].Draw(480, 240)
 					break
 				}
 			}
