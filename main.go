@@ -222,7 +222,15 @@ func update() {
 			}
 			if humans[i].x >= 500 && humans[i].x <= 600 {
 				if len(currentDiseases) > 0 {
-					hatchOpen = true
+					for _, dis := range currentDiseases {
+						for _, epi := range epidemics {
+							if dis.name == epi {
+								hatchOpen = true
+								goto thebatmobile
+							}
+						}
+					}
+					thebatmobile:
 				}
 			}
 			
