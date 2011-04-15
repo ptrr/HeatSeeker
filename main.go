@@ -150,10 +150,7 @@ func removeHuman(index int) {
 
 func setEpidemic(index int) {
 	for {
-<<<<<<< HEAD
 		rand.Seed(time.Nanoseconds())
-=======
->>>>>>> dd50ec3f1e2f0ae726743ae7cce2a0a5ec332243
 		disease := allDiseases[rand.Intn(len(allDiseases))]
 		found := false
 		for _, dname := range epidemics {
@@ -177,14 +174,12 @@ func start() {
 		println(epidemics[i])
 	}
 	
-<<<<<<< HEAD
+
 	borden[0] = go2d.NewImage("bord_leeg.png")
 	for i := 1; i <= 4; i++ {
 		borden[i] = go2d.NewImage(fmt.Sprintf("bord%d.png", i))
 	}	
 	
-=======
->>>>>>> dd50ec3f1e2f0ae726743ae7cce2a0a5ec332243
 	currentEnv = &Env{}
 	currentEnv.seaker = go2d.NewImage("seaker.png")
 	currentEnv.bg = go2d.NewImage("bg.png")
@@ -327,7 +322,7 @@ func draw() {
 			
 			for i, dname := range epidemics {
 				if dname == disease.name {
-					borden[i+1].Draw(480, 240)
+					borden[i+1].Draw(480, 260)
 					break
 				}
 			}
