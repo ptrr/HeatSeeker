@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	//www.github.com/urmel/go2d
 	"go2d"
 	"rand"
 
@@ -26,36 +27,36 @@ var temp_head int = 0
 var temp_upper int = 0
 var temp_lower int = 0
 
-var allDiseases []string = make([]string, 0)
 var epidemics [4]string
 
 var currentCountry *Country 
 var currentDiseases []*Disease
 var currentEnv *Env
 
-
 type Disease struct {
 	name string
 	head, upper, lower bool
+	epidemic bool
 }
 
 type Country struct {
 	name string
-	diseases []*Disease
+	diseases []string
 }
 
 func NewCountry(name string) *Country {
 	country := &Country{}
 	country.name = name
-	country.diseases = make([]*Disease, 0)
+	country.diseases = make([]string, 0)
 	return country
 }
 
-func (country *Country) addDisease(name string, head, upper, lower bool) {
-	country.diseases = append(country.diseases, &Disease{name, head, upper, lower})
+func (country *Country) addDisease(name string) {
+	country.diseases = append(country.diseases, name)
 }
 
 var countries []*Country
+var diseases map[string]*Disease = make(map[string]*Disease)
 
 func setDiseases() {
 	currentDiseases = make([]*Disease, 0)
@@ -70,7 +71,12 @@ func setDiseases() {
 		lower = true
 	}
 	if currentCountry != nil {
-		for _, disease := range currentCountry.diseases {
+		for _, diseasename := range currentCountry.diseases {
+			disease := diseases[diseasename]
+			if disease == nil {
+				continue
+			}
+			
 			scouterTrue := 0
 			if head {
 				scouterTrue++
@@ -93,9 +99,9 @@ func setDiseases() {
 				diseaseTrue ++
 			}
 			
-			headCheck := (head == disease.head) // true
-			upperCheck := (upper == disease.upper) // true
-			lowerCheck := (lower == disease.lower) // false
+			headCheck := (head == disease.head)
+			upperCheck := (upper == disease.upper)
+			lowerCheck := (lower == disease.lower)
 			
 			if scouterTrue > diseaseTrue {
 				if headCheck || upperCheck || lowerCheck {
@@ -149,18 +155,28 @@ func removeHuman(index int) {
 }
 
 func setEpidemic(index int) {
-	for {
-		rand.Seed(time.Nanoseconds())
-		disease := allDiseases[rand.Intn(len(allDiseases))]
-		found := false
-		for _, dname := range epidemics {
-			if dname == disease {
-				found = true
+	for i := 0; i < 4; i++ {
+		for {
+			rand.Seed(time.Nanoseconds())
+			diseasenum := rand.Intn(len(diseases))
+			curnum := 0
+			found := false
+			var diseasename string
+			for diseasename, _ = range diseases {
+				if curnum == diseasenum {
+					for _, dname := range epidemics {
+						if diseasename == dname {
+							found = true
+						}
+					}
+					break
+				}
+				curnum++
 			}
-		}
-		if !found {
-			epidemics[index] = disease
-			return
+			if !found {
+				epidemics[index] = diseasename
+				return
+			}
 		}
 	}
 }
@@ -171,10 +187,9 @@ func start() {
 	//set epidemics
 	for i := 0; i < len(epidemics); i++ {
 		setEpidemic(i)
-		println(epidemics[i])
+		println(fmt.Sprintf("Epidemic #%d: %s", i, epidemics[i]))
 	}
 	
-
 	borden[0] = go2d.NewImage("bord_leeg.png")
 	for i := 1; i <= 4; i++ {
 		borden[i] = go2d.NewImage(fmt.Sprintf("bord%d.png", i))
@@ -226,6 +241,7 @@ func update() {
 						for _, epi := range epidemics {
 							if dis.name == epi {
 								hatchOpen = true
+								//goto is bad? http://kerneltrap.org/node/553/2131
 								goto thebatmobile
 							}
 						}
@@ -255,12 +271,10 @@ func update() {
 func draw() {
 	currentEnv.bg.DrawRect(go2d.NewRect(0,0, 800, 600))
 	font.SetStyle(false, false, true)
-	//font.DrawText("Customs", 330, 435)
 	currentEnv.customs.DrawRect(go2d.NewRect(300, 430, 164, 82))
 	
 	
 	if !hatchOpen {
-		//go2d.DrawFillRect(go2d.NewRect(500, 515, 100, 20), 255, 255, 255, 255)
 		currentEnv.hatch.DrawRect(go2d.NewRect(470, 480, 144, 80))
 	} else {
 		currentEnv.hatch_open.DrawRect(go2d.NewRect(470, 480, 144, 80))	
@@ -273,20 +287,12 @@ func draw() {
 	for i := 0; i < len(humans); i++ {
 		human := humans[i]
 		if len(human.frames) > 0 {
-			//human.frames[human.frame].DrawRect(go2d.NewRect(humans[i].x, humans[i].y, 78, 114))
 			human.frames[human.frame].DrawInRect(humans[i].x, humans[i].y, go2d.NewRect(0,0, 800, 512))
 		}
 	}
-	
-	//go2d.DrawFillRect(go2d.NewRect(150, 370, 80, 150), 255, 0, 0, 255)
-	
 	currentEnv.seaker.DrawRect(go2d.NewRect(150, 309, 91, 211))
 	
-	
-	//go2d.DrawFillRect(go2d.NewRect(0, 515, 500, 20), 0, 255,0, 255)
-	//go2d.DrawFillRect(go2d.NewRect(600, 515, 100, 20), 0, 0, 255, 255)
-	
-	//go2d.DrawFillRect(go2d.NewRect(700, 370, 100, 165), 255, 255, 255, 255)
+
 	currentEnv.entrance.DrawRect(go2d.NewRect(717, 311, 83, 176))
 	font.SetStyle(true, false, false)
 	font.DrawText("Body heat:", 100, 100)
@@ -338,9 +344,6 @@ func draw() {
 	}
 	
 	font.SetStyle(false, false, true)
-	//font.DrawText("Heatseeker", 150, 350)
-	//font.DrawText("Quarantaine", 510, 520)
-	//font.DrawText("Entrance", 720, 350)
 } 
 
 func mouseMove(x, y int16) {
@@ -348,7 +351,7 @@ func mouseMove(x, y int16) {
 }
 
 func mouseUp(x, y int16) {
-
+	//mouse up events
 }
 
 func mouseDown(x, y int16) {
@@ -372,16 +375,10 @@ func loadData() {
 	for _, country := range jsontype.Data.Countries {
 		newCountry := NewCountry(country.Name)
 		for _, disease := range country.Diseases {
-			found := false
-			for _, dname := range allDiseases {
-				if dname == disease.Name {
-					found = true
-				}
+			if _, found := diseases[disease.Name]; !found {
+				diseases[disease.Name] = &Disease{disease.Name, disease.Head, disease.Upper, disease.Lower, false}
 			}
-			if !found {
-				allDiseases = append(allDiseases, disease.Name)
-			}
-			newCountry.addDisease(disease.Name, disease.Head, disease.Upper, disease.Lower)
+			newCountry.addDisease(disease.Name)
 		}
 		countries = append(countries, newCountry)
 	}
